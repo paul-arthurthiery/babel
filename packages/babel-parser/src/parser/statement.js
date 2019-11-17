@@ -797,7 +797,7 @@ export default class StatementParser extends ExpressionParser {
 
     node.finalizer = this.eat(tt._finally) ? this.parseBlock() : null;
 
-    if (!node.handler && !node.finalizer) {
+    if (!node.handler && !node.handlers && !node.finalizer) {
       this.raise(node.start, "Missing catch or finally clause");
     }
 
