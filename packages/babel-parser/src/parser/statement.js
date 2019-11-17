@@ -701,9 +701,98 @@ export default class StatementParser extends ExpressionParser {
           // Parse the catch clause's body.
           this.parseBlock(false, false),
         );
-      this.scope.exit();
 
-      node.handler = this.finishNode(clause, "CatchClause");
+      this.scope.exit();
+      if (clause.params && this.match(tt._catch)) {
+        node.handlers = [this.finishNode(clause, "CatchClause")];
+        while (this.eat(tt._catch)) {
+          const extraClause = this.startNode();
+          if (this.eat(tt.parenL)) {
+            if (this.lookahead().type === tt.comma) {
+              extraClause.params = [this.parseAssignableListItem(false, false)];
+              this.next();
+              this.eat(tt.comma);
+              extraClause.params.push(
+                this.parseAssignableListItem(false, false),
+              );
+              this.scope.enter(SCOPE_SIMPLE_CATCH);
+              this.checkLVal(
+                extraClause.params[0],
+                BIND_LEXICAL,
+                clashesToCheck,
+                "catch clause",
+              );
+              this.checkLVal(
+                extraClause.params[1],
+                BIND_LEXICAL,
+                clashesToCheck,
+                "catch clause",
+              );
+              clashesToCheck = {
+                ...clashesToCheck,
+                ...Object.keys(extraClause.params).reduce((acc, curr) => {
+                  acc[`_${extraClause.params[curr].name}`] = true;
+                  return acc;
+                }, {}),
+              };
+              this.expect(tt.parenR);
+              extraClause.body =
+                // For the smartPipelines plugin: Disable topic references from outer
+                // contexts within the function body. They are permitted in function
+                // default-parameter expressions, which are part of the outer context,
+                // outside of the function body.
+                this.withTopicForbiddingContext(() =>
+                  // Parse the catch clause's body.
+                  this.parseBlock(false, false),
+                );
+
+              this.scope.exit();
+              node.handlers.push(this.finishNode(extraClause, "CatchClause"));
+            } else {
+              extraClause.param = this.parseBindingAtom();
+              const simple = extraClause.param.type === "Identifier";
+              this.scope.enter(simple ? SCOPE_SIMPLE_CATCH : 0);
+              this.checkLVal(
+                extraClause.param,
+                BIND_LEXICAL,
+                clashesToCheck,
+                "catch clause",
+              );
+              this.expect(tt.parenR);
+              clause.body =
+                // For the smartPipelines plugin: Disable topic references from outer
+                // contexts within the function body. They are permitted in function
+                // default-parameter expressions, which are part of the outer context,
+                // outside of the function body.
+                this.withTopicForbiddingContext(() =>
+                  // Parse the catch clause's body.
+                  this.parseBlock(false, false),
+                );
+
+              this.scope.exit();
+              node.handlers.push(this.finishNode(extraClause, "CatchClause"));
+              break;
+            }
+          } else {
+            extraClause.param = null;
+            this.scope.enter(SCOPE_OTHER);
+            extraClause.body =
+              // For the smartPipelines plugin: Disable topic references from outer
+              // contexts within the function body. They are permitted in function
+              // default-parameter expressions, which are part of the outer context,
+              // outside of the function body.
+              this.withTopicForbiddingContext(() =>
+                // Parse the catch clause's body.
+                this.parseBlock(false, false),
+              );
+
+            this.scope.exit();
+            node.handlers.push(this.finishNode(extraClause, "CatchClause"));
+          }
+        }
+      } else {
+        node.handler = this.finishNode(clause, "CatchClause");
+      }
     }
 
     node.finalizer = this.eat(tt._finally) ? this.parseBlock() : null;
