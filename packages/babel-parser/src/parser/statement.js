@@ -650,17 +650,43 @@ export default class StatementParser extends ExpressionParser {
 
     node.block = this.parseBlock();
     node.handler = null;
-
+    let clashesToCheck;
     if (this.match(tt._catch)) {
       const clause = this.startNode();
       this.next();
       if (this.match(tt.parenL)) {
-        this.expect(tt.parenL);
-        clause.param = this.parseBindingAtom();
-        const simple = clause.param.type === "Identifier";
-        this.scope.enter(simple ? SCOPE_SIMPLE_CATCH : 0);
-        this.checkLVal(clause.param, BIND_LEXICAL, null, "catch clause");
-        this.expect(tt.parenR);
+        this.next();
+        if (this.lookahead().type === tt.comma) {
+          clause.params = [this.parseAssignableListItem(false, false)];
+          this.next();
+          this.eat(tt.comma);
+          clause.params.push(this.parseAssignableListItem(false, false));
+          clashesToCheck = {};
+          this.scope.enter(SCOPE_SIMPLE_CATCH);
+          this.checkLVal(
+            clause.params[0],
+            BIND_LEXICAL,
+            clashesToCheck,
+            "catch clause",
+          );
+          this.checkLVal(
+            clause.params[1],
+            BIND_LEXICAL,
+            clashesToCheck,
+            "catch clause",
+          );
+          clashesToCheck = Object.keys(clause.params).reduce((acc, curr) => {
+            acc[`_${clause.params[curr].name}`] = true;
+            return acc;
+          }, {});
+          this.expect(tt.parenR);
+        } else {
+          clause.param = this.parseBindingAtom();
+          const simple = clause.param.type === "Identifier";
+          this.scope.enter(simple ? SCOPE_SIMPLE_CATCH : 0);
+          this.checkLVal(clause.param, BIND_LEXICAL, null, "catch clause");
+          this.expect(tt.parenR);
+        }
       } else {
         clause.param = null;
         this.scope.enter(SCOPE_OTHER);
