@@ -1,0 +1,1062 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error filtering syntax should not parse new syntax with clashes 1`] = `"Argument name clash (1:31)"`;
+
+exports[`error filtering syntax should not parse new syntax with clashes 2`] = `"Argument name clash (1:42)"`;
+
+exports[`error filtering syntax should parse current syntax 1`] = `
+Node {
+  "comments": Array [],
+  "end": 33,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 33,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "async": false,
+        "body": Node {
+          "body": Array [
+            Node {
+              "block": Node {
+                "body": Array [],
+                "directives": Array [],
+                "end": 19,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 19,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 17,
+                    "line": 1,
+                  },
+                },
+                "start": 17,
+                "type": "BlockStatement",
+              },
+              "end": 31,
+              "finalizer": null,
+              "handler": Node {
+                "body": Node {
+                  "body": Array [],
+                  "directives": Array [],
+                  "end": 31,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 31,
+                      "line": 1,
+                    },
+                    "start": Position {
+                      "column": 29,
+                      "line": 1,
+                    },
+                  },
+                  "start": 29,
+                  "type": "BlockStatement",
+                },
+                "end": 31,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 31,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 20,
+                    "line": 1,
+                  },
+                },
+                "param": Node {
+                  "end": 27,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 27,
+                      "line": 1,
+                    },
+                    "identifierName": "e",
+                    "start": Position {
+                      "column": 26,
+                      "line": 1,
+                    },
+                  },
+                  "name": "e",
+                  "start": 26,
+                  "type": "Identifier",
+                },
+                "start": 20,
+                "type": "CatchClause",
+              },
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 31,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 14,
+                  "line": 1,
+                },
+              },
+              "start": 14,
+              "type": "TryStatement",
+            },
+          ],
+          "directives": Array [],
+          "end": 33,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 33,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 12,
+              "line": 1,
+            },
+          },
+          "start": 12,
+          "type": "BlockStatement",
+        },
+        "end": 33,
+        "generator": false,
+        "id": Node {
+          "end": 10,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 10,
+              "line": 1,
+            },
+            "identifierName": "a",
+            "start": Position {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "name": "a",
+          "start": 9,
+          "type": "Identifier",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 33,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "params": Array [],
+        "start": 0,
+        "type": "FunctionDeclaration",
+      },
+    ],
+    "directives": Array [],
+    "end": 33,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 33,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
+
+exports[`error filtering syntax should parse mix of new and old syntax 1`] = `
+Node {
+  "comments": Array [],
+  "end": 36,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 36,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "block": Node {
+          "body": Array [],
+          "directives": Array [],
+          "end": 5,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 5,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 3,
+              "line": 1,
+            },
+          },
+          "start": 3,
+          "type": "BlockStatement",
+        },
+        "end": 36,
+        "finalizer": null,
+        "handler": null,
+        "handlers": Array [
+          Node {
+            "body": Node {
+              "body": Array [],
+              "directives": Array [],
+              "end": 36,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 36,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 34,
+                  "line": 1,
+                },
+              },
+              "start": 34,
+              "type": "BlockStatement",
+            },
+            "end": 24,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 24,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 6,
+                "line": 1,
+              },
+            },
+            "params": Array [
+              Node {
+                "end": 17,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 17,
+                    "line": 1,
+                  },
+                  "identifierName": "Error",
+                  "start": Position {
+                    "column": 12,
+                    "line": 1,
+                  },
+                },
+                "name": "Error",
+                "start": 12,
+                "type": "Identifier",
+              },
+              Node {
+                "end": 20,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 20,
+                    "line": 1,
+                  },
+                  "identifierName": "e",
+                  "start": Position {
+                    "column": 19,
+                    "line": 1,
+                  },
+                },
+                "name": "e",
+                "start": 19,
+                "type": "Identifier",
+              },
+            ],
+            "start": 6,
+            "type": "CatchClause",
+          },
+          Node {
+            "end": 36,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 36,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 30,
+                "line": 1,
+              },
+            },
+            "param": Node {
+              "end": 32,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 32,
+                  "line": 1,
+                },
+                "identifierName": "f",
+                "start": Position {
+                  "column": 31,
+                  "line": 1,
+                },
+              },
+              "name": "f",
+              "start": 31,
+              "type": "Identifier",
+            },
+            "start": 30,
+            "type": "CatchClause",
+          },
+        ],
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 36,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "start": 0,
+        "type": "TryStatement",
+      },
+    ],
+    "directives": Array [],
+    "end": 36,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 36,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
+
+exports[`error filtering syntax should parse new syntax 1`] = `
+Node {
+  "comments": Array [],
+  "end": 24,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 24,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "block": Node {
+          "body": Array [],
+          "directives": Array [],
+          "end": 5,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 5,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 3,
+              "line": 1,
+            },
+          },
+          "start": 3,
+          "type": "BlockStatement",
+        },
+        "end": 24,
+        "finalizer": null,
+        "handler": Node {
+          "body": Node {
+            "body": Array [],
+            "directives": Array [],
+            "end": 24,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 24,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 22,
+                "line": 1,
+              },
+            },
+            "start": 22,
+            "type": "BlockStatement",
+          },
+          "end": 24,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 24,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 6,
+              "line": 1,
+            },
+          },
+          "params": Array [
+            Node {
+              "end": 17,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 17,
+                  "line": 1,
+                },
+                "identifierName": "Error",
+                "start": Position {
+                  "column": 12,
+                  "line": 1,
+                },
+              },
+              "name": "Error",
+              "start": 12,
+              "type": "Identifier",
+            },
+            Node {
+              "end": 20,
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 20,
+                  "line": 1,
+                },
+                "identifierName": "e",
+                "start": Position {
+                  "column": 19,
+                  "line": 1,
+                },
+              },
+              "name": "e",
+              "start": 19,
+              "type": "Identifier",
+            },
+          ],
+          "start": 6,
+          "type": "CatchClause",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 24,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "start": 0,
+        "type": "TryStatement",
+      },
+    ],
+    "directives": Array [],
+    "end": 24,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 24,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
+
+exports[`error filtering syntax should parse new syntax in function 1`] = `
+Node {
+  "comments": Array [],
+  "end": 38,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 38,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "async": false,
+        "body": Node {
+          "body": Array [
+            Node {
+              "block": Node {
+                "body": Array [],
+                "directives": Array [],
+                "end": 18,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 18,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 16,
+                    "line": 1,
+                  },
+                },
+                "start": 16,
+                "type": "BlockStatement",
+              },
+              "end": 37,
+              "finalizer": null,
+              "handler": Node {
+                "body": Node {
+                  "body": Array [],
+                  "directives": Array [],
+                  "end": 37,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 37,
+                      "line": 1,
+                    },
+                    "start": Position {
+                      "column": 35,
+                      "line": 1,
+                    },
+                  },
+                  "start": 35,
+                  "type": "BlockStatement",
+                },
+                "end": 37,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 37,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 19,
+                    "line": 1,
+                  },
+                },
+                "params": Array [
+                  Node {
+                    "end": 30,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 30,
+                        "line": 1,
+                      },
+                      "identifierName": "Error",
+                      "start": Position {
+                        "column": 25,
+                        "line": 1,
+                      },
+                    },
+                    "name": "Error",
+                    "start": 25,
+                    "type": "Identifier",
+                  },
+                  Node {
+                    "end": 33,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 33,
+                        "line": 1,
+                      },
+                      "identifierName": "e",
+                      "start": Position {
+                        "column": 32,
+                        "line": 1,
+                      },
+                    },
+                    "name": "e",
+                    "start": 32,
+                    "type": "Identifier",
+                  },
+                ],
+                "start": 19,
+                "type": "CatchClause",
+              },
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 37,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 13,
+                  "line": 1,
+                },
+              },
+              "start": 13,
+              "type": "TryStatement",
+            },
+          ],
+          "directives": Array [],
+          "end": 38,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 38,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 12,
+              "line": 1,
+            },
+          },
+          "start": 12,
+          "type": "BlockStatement",
+        },
+        "end": 38,
+        "generator": false,
+        "id": Node {
+          "end": 10,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 10,
+              "line": 1,
+            },
+            "identifierName": "a",
+            "start": Position {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "name": "a",
+          "start": 9,
+          "type": "Identifier",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 38,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "params": Array [],
+        "start": 0,
+        "type": "FunctionDeclaration",
+      },
+    ],
+    "directives": Array [],
+    "end": 38,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 38,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
+
+exports[`error filtering syntax should parse new syntax with multiple filters 1`] = `
+Node {
+  "comments": Array [],
+  "end": 61,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 61,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "async": false,
+        "body": Node {
+          "body": Array [
+            Node {
+              "block": Node {
+                "body": Array [],
+                "directives": Array [],
+                "end": 18,
+                "loc": SourceLocation {
+                  "end": Position {
+                    "column": 18,
+                    "line": 1,
+                  },
+                  "start": Position {
+                    "column": 16,
+                    "line": 1,
+                  },
+                },
+                "start": 16,
+                "type": "BlockStatement",
+              },
+              "end": 60,
+              "finalizer": null,
+              "handler": null,
+              "handlers": Array [
+                Node {
+                  "body": Node {
+                    "body": Array [],
+                    "directives": Array [],
+                    "end": 37,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 37,
+                        "line": 1,
+                      },
+                      "start": Position {
+                        "column": 35,
+                        "line": 1,
+                      },
+                    },
+                    "start": 35,
+                    "type": "BlockStatement",
+                  },
+                  "end": 37,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 37,
+                      "line": 1,
+                    },
+                    "start": Position {
+                      "column": 19,
+                      "line": 1,
+                    },
+                  },
+                  "params": Array [
+                    Node {
+                      "end": 30,
+                      "loc": SourceLocation {
+                        "end": Position {
+                          "column": 30,
+                          "line": 1,
+                        },
+                        "identifierName": "Error",
+                        "start": Position {
+                          "column": 25,
+                          "line": 1,
+                        },
+                      },
+                      "name": "Error",
+                      "start": 25,
+                      "type": "Identifier",
+                    },
+                    Node {
+                      "end": 33,
+                      "loc": SourceLocation {
+                        "end": Position {
+                          "column": 33,
+                          "line": 1,
+                        },
+                        "identifierName": "e",
+                        "start": Position {
+                          "column": 32,
+                          "line": 1,
+                        },
+                      },
+                      "name": "e",
+                      "start": 32,
+                      "type": "Identifier",
+                    },
+                  ],
+                  "start": 19,
+                  "type": "CatchClause",
+                },
+                Node {
+                  "body": Node {
+                    "body": Array [],
+                    "directives": Array [],
+                    "end": 60,
+                    "loc": SourceLocation {
+                      "end": Position {
+                        "column": 60,
+                        "line": 1,
+                      },
+                      "start": Position {
+                        "column": 58,
+                        "line": 1,
+                      },
+                    },
+                    "start": 58,
+                    "type": "BlockStatement",
+                  },
+                  "end": 60,
+                  "loc": SourceLocation {
+                    "end": Position {
+                      "column": 60,
+                      "line": 1,
+                    },
+                    "start": Position {
+                      "column": 43,
+                      "line": 1,
+                    },
+                  },
+                  "params": Array [
+                    Node {
+                      "end": 53,
+                      "loc": SourceLocation {
+                        "end": Position {
+                          "column": 53,
+                          "line": 1,
+                        },
+                        "identifierName": "TypeError",
+                        "start": Position {
+                          "column": 44,
+                          "line": 1,
+                        },
+                      },
+                      "name": "TypeError",
+                      "start": 44,
+                      "type": "Identifier",
+                    },
+                    Node {
+                      "end": 56,
+                      "loc": SourceLocation {
+                        "end": Position {
+                          "column": 56,
+                          "line": 1,
+                        },
+                        "identifierName": "f",
+                        "start": Position {
+                          "column": 55,
+                          "line": 1,
+                        },
+                      },
+                      "name": "f",
+                      "start": 55,
+                      "type": "Identifier",
+                    },
+                  ],
+                  "start": 43,
+                  "type": "CatchClause",
+                },
+              ],
+              "loc": SourceLocation {
+                "end": Position {
+                  "column": 60,
+                  "line": 1,
+                },
+                "start": Position {
+                  "column": 13,
+                  "line": 1,
+                },
+              },
+              "start": 13,
+              "type": "TryStatement",
+            },
+          ],
+          "directives": Array [],
+          "end": 61,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 61,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 12,
+              "line": 1,
+            },
+          },
+          "start": 12,
+          "type": "BlockStatement",
+        },
+        "end": 61,
+        "generator": false,
+        "id": Node {
+          "end": 10,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 10,
+              "line": 1,
+            },
+            "identifierName": "a",
+            "start": Position {
+              "column": 9,
+              "line": 1,
+            },
+          },
+          "name": "a",
+          "start": 9,
+          "type": "Identifier",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 61,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "params": Array [],
+        "start": 0,
+        "type": "FunctionDeclaration",
+      },
+    ],
+    "directives": Array [],
+    "end": 61,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 61,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
+
+exports[`error filtering syntax should parse optional catch binding 1`] = `
+Node {
+  "comments": Array [],
+  "end": 14,
+  "errors": Array [],
+  "loc": SourceLocation {
+    "end": Position {
+      "column": 14,
+      "line": 1,
+    },
+    "start": Position {
+      "column": 0,
+      "line": 1,
+    },
+  },
+  "program": Node {
+    "body": Array [
+      Node {
+        "block": Node {
+          "body": Array [],
+          "directives": Array [],
+          "end": 5,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 5,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 3,
+              "line": 1,
+            },
+          },
+          "start": 3,
+          "type": "BlockStatement",
+        },
+        "end": 14,
+        "finalizer": null,
+        "handler": Node {
+          "body": Node {
+            "body": Array [],
+            "directives": Array [],
+            "end": 14,
+            "loc": SourceLocation {
+              "end": Position {
+                "column": 14,
+                "line": 1,
+              },
+              "start": Position {
+                "column": 12,
+                "line": 1,
+              },
+            },
+            "start": 12,
+            "type": "BlockStatement",
+          },
+          "end": 14,
+          "loc": SourceLocation {
+            "end": Position {
+              "column": 14,
+              "line": 1,
+            },
+            "start": Position {
+              "column": 6,
+              "line": 1,
+            },
+          },
+          "param": null,
+          "start": 6,
+          "type": "CatchClause",
+        },
+        "loc": SourceLocation {
+          "end": Position {
+            "column": 14,
+            "line": 1,
+          },
+          "start": Position {
+            "column": 0,
+            "line": 1,
+          },
+        },
+        "start": 0,
+        "type": "TryStatement",
+      },
+    ],
+    "directives": Array [],
+    "end": 14,
+    "interpreter": null,
+    "loc": SourceLocation {
+      "end": Position {
+        "column": 14,
+        "line": 1,
+      },
+      "start": Position {
+        "column": 0,
+        "line": 1,
+      },
+    },
+    "sourceType": "module",
+    "start": 0,
+    "type": "Program",
+  },
+  "start": 0,
+  "type": "File",
+}
+`;
