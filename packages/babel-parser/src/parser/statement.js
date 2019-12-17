@@ -657,10 +657,12 @@ export default class StatementParser extends ExpressionParser {
       if (this.match(tt.parenL)) {
         this.next();
         if (this.lookahead().type === tt.comma) {
-          clause.params = [this.parseAssignableListItem(false, false)];
-          this.next();
-          this.eat(tt.comma);
-          clause.params.push(this.parseAssignableListItem(false, false));
+          clause.params = this.parseBindingList(
+            tt.parenR,
+            charCodes.rightParenthesis,
+            false,
+            false,
+          );
           clashesToCheck = {};
           this.scope.enter(SCOPE_SIMPLE_CATCH);
           this.checkLVal(
@@ -679,7 +681,6 @@ export default class StatementParser extends ExpressionParser {
             acc[`_${clause.params[curr].name}`] = true;
             return acc;
           }, {});
-          this.expect(tt.parenR);
         } else {
           clause.param = this.parseBindingAtom();
           const simple = clause.param.type === "Identifier";
@@ -709,11 +710,11 @@ export default class StatementParser extends ExpressionParser {
           const extraClause = this.startNode();
           if (this.eat(tt.parenL)) {
             if (this.lookahead().type === tt.comma) {
-              extraClause.params = [this.parseAssignableListItem(false, false)];
-              this.next();
-              this.eat(tt.comma);
-              extraClause.params.push(
-                this.parseAssignableListItem(false, false),
+              extraClause.params = this.parseBindingList(
+                tt.parenR,
+                charCodes.rightParenthesis,
+                false,
+                false,
               );
               this.scope.enter(SCOPE_SIMPLE_CATCH);
               this.checkLVal(
@@ -735,7 +736,6 @@ export default class StatementParser extends ExpressionParser {
                   return acc;
                 }, {}),
               };
-              this.expect(tt.parenR);
               extraClause.body =
                 // For the smartPipelines plugin: Disable topic references from outer
                 // contexts within the function body. They are permitted in function
